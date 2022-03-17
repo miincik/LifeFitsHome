@@ -8,7 +8,7 @@ public class Address : IEntity
     public string OpenAddress2 { get; set; }
     public int DistrictId { get; set; }
     public District District { get; set; }
-    
-    // public Area Area {get;set;}
+    public int AreaId { get; set; }
+     public Area Area {get;set;}
 
 }

@@ -12,6 +12,12 @@
         public byte[] PasswordHash { get; set; }
         public bool IsBlocked { get; set; }
         public bool IsSafety { get; set; }
+        public QRCode? QRCode { get; set; }
+        public int QRCodeId { get; set; }
+        public Gender? Gender { get; set; }
+        public int GenderId { get; set; }
+        
+
 
     }
 }
