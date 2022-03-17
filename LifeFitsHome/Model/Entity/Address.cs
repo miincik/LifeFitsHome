@@ -10,5 +10,7 @@ public class Address : IEntity
     public City City { get; set; }
     public int DistrictId { get; set; }
     public District District { get; set; }
+    
+    // public Area Area {get;set;}
 
 }
