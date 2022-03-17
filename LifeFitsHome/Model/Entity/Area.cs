@@ -7,7 +7,7 @@ public class Area {
     public string? Description {get; set;}
     public bool? IsSafety { get; set; }
 
-    //public virtual ICollection<Address> Adress {get; set;}
+    public virtual ICollection<Address> ?Address {get; set;}
     public AreaTypeEnum AreaType{get; set;}
 
 }
