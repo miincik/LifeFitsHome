@@ -64,7 +64,6 @@ namespace LifeFitsHome.Contexts
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-                entity.HasMany(e=>e.Cities).WithOne(e=>e.Region);
 
             });
         }
