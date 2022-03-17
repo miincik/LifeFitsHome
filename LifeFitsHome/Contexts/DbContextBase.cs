@@ -27,8 +27,8 @@ namespace LifeFitsHome.Contexts
                 entity.Property(e => e.PasswordHash);
                 entity.Property(e => e.FirstName).IsRequired();
                 entity.Property(e => e.LastName).IsRequired();
-                entity.Property(e => e.IsBlocked).IsRequired();
-                entity.Property(e => e.IsSafety).IsRequired();
+                entity.Property(e => e.IsBlocked);
+                entity.Property(e => e.IsSafety);
             });
             modelBuilder.Entity<OperationClaim>(entity =>
             {
