@@ -8,5 +8,5 @@ public interface IAreaRepository{
     Task<Area>UpdateArea(int id,Area area);
     Task<List<Area>> GetAllArea();
     
-    Task<Gender>GetByGenderType(GenderEnum Type);
+    
 }

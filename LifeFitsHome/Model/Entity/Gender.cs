@@ -1,9 +1,11 @@
 namespace LifeFitsHome.Model.Entity;
 
-public class Gender:IEntity{
+public class Gender : IEntity
+{
 
-public int id { get; set; }
-public GenderEnum Type {get; set;}
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public virtual User? User { get; set; }
 
 
 
