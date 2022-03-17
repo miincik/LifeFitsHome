@@ -8,6 +8,10 @@ namespace LifeFitsHome.Contexts
         public DbSet<User>? Users { get; set; }
         public DbSet<OperationClaim>? OperationClaims { get; set; }
         public DbSet<UserOperationClaim>? UserOperationClaims { get; set; }
+        public DbSet<Address>? Addresses { get; set; }
+        public DbSet<City>? Cities { get; set; }
+        public DbSet<District>? Districts { get; set; }
+        public DbSet<Region>? Regions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,6 +38,33 @@ namespace LifeFitsHome.Contexts
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
+            });
+            modelBuilder.Entity<Address>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+                entity.Property(e => e.OpenAddress1);
+                entity.Property(e => e.OpenAddress2);
+                entity.HasOne(e=>e.District).WithMany(e=>e.Addresses).HasForeignKey(e=>e.DistrictId);
+            });
+            modelBuilder.Entity<City>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+                entity.HasOne(e=>e.Region).WithMany(e=>e.Cities).HasForeignKey(e=>e.RegionId);
+            });
+            modelBuilder.Entity<District>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+                entity.HasOne(e=>e.City).WithMany(e=>e.Districts).HasForeignKey(e=>e.CityId);
+
+            });
+             modelBuilder.Entity<Region>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+
             });
         }
     }
