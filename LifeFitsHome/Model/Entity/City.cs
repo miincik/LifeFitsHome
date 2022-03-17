@@ -4,6 +4,7 @@ public class City:IEntity
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public int RegionId { get; set; }
     public Region Region { get; set; }
-    public virtual ICollection<District>? District { get; set; }
+    public virtual ICollection<District>? Districts { get; set; }
 }
