@@ -5,5 +5,6 @@ namespace LifeFitsHome.Repositories.Interfaces
 {
     public interface IUserRepository : IEntityRepository<User>
     {
+        List<OperationClaim> GetClaims(User user);
     }
 }
