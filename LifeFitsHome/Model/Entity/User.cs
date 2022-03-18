@@ -16,7 +16,7 @@
         public int QRCodeId { get; set; }
         public Gender? Gender { get; set; }
         public int GenderId { get; set; }
-        
+        public virtual ICollection<Vaccine>? Vaccines { get; set; }
 
 
     }

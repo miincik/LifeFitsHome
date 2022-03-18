@@ -16,6 +16,8 @@ namespace LifeFitsHome.Contexts
         public DbSet<AreaType>? AreaTypes{get; set;}
         public DbSet<Gender>? Genders{get; set;}
         public DbSet<QRCode>? QRs{get; set;}
+        public DbSet<Vaccine>? Vaccines{get; set;}
+        public DbSet<VaccineType>? VaccineTypes{get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,6 +41,7 @@ namespace LifeFitsHome.Contexts
                 entity.Property(e => e.IsSafety);
                 entity.HasOne(e=>e.QRCode).WithOne(e=>e!.User).HasForeignKey<User>(e=>e.QRCodeId);
                 entity.HasOne(e=>e.Gender).WithOne(e=>e!.User).HasForeignKey<User>(e=>e.GenderId);
+                entity.HasMany(e => e.Vaccines).WithMany(e => e!.Users).UsingEntity(e => e.ToTable("UserVaccine"));
             });
             modelBuilder.Entity<OperationClaim>(entity =>
             {
@@ -92,6 +95,16 @@ namespace LifeFitsHome.Contexts
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
+            });
+            modelBuilder.Entity<Vaccine>(entity => {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name);
+                entity.Property(e => e.Description);
+                entity.HasOne(e => e.VaccineType).WithMany(e => e.Vaccines).HasForeignKey(e => e.VaccineTypeId);
+            });
+            modelBuilder.Entity<VaccineType>(entity => {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name);
             });
         }
     }
