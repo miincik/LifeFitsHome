@@ -15,7 +15,7 @@ namespace LifeFitsHome.Contexts
         public DbSet<Area>? Areas {get; set;}
         public DbSet<AreaType>? AreaTypes{get; set;}
         public DbSet<Gender>? Genders{get; set;}
-        public DbSet<QRCode>? QRs{get; set;}
+        public DbSet<QRCode>? QRCodes{get; set;}
         public DbSet<Vaccine>? Vaccines{get; set;}
         public DbSet<VaccineType>? VaccineTypes{get; set;}
 
@@ -24,7 +24,7 @@ namespace LifeFitsHome.Contexts
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
             optionsBuilder.UseMySql("server=localhost;database=lifefitshomedb;user=root;port=3306;password=toortoor", serverVersion);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>(entity =>
