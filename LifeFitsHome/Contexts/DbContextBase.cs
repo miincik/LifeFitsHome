@@ -15,7 +15,7 @@ namespace LifeFitsHome.Contexts
         public DbSet<Area>? Areas {get; set;}
         public DbSet<AreaType>? AreaTypes{get; set;}
         public DbSet<Gender>? Genders{get; set;}
-        public DbSet<QRCode>? QRs{get; set;}
+        public DbSet<QRCode>? QRCodes{get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
