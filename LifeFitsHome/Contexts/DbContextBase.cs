@@ -51,56 +51,48 @@ namespace LifeFitsHome.Contexts
                 entity.Property(e => e.Name).IsRequired();
                 entity.Property(e => e.OpenAddress1);
                 entity.Property(e => e.OpenAddress2);
-                entity.HasOne(e=>e.District).WithMany(e=>e.Addresses).HasForeignKey(e=>e.DistrictId);
-                entity.HasOne(e=>e.Area).WithMany(e=>e.Address).HasForeignKey(e=>e.AreaId);
+                entity.HasOne(e=>e.District).WithMany(e=>e!.Addresses).HasForeignKey(e=>e.DistrictId);
+                entity.HasOne(e=>e.Area).WithMany(e=>e!.Address).HasForeignKey(e=>e.AreaId);
             });
             modelBuilder.Entity<City>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-                entity.HasOne(e=>e.Region).WithMany(e=>e.Cities).HasForeignKey(e=>e.RegionId);
+                entity.HasOne(e=>e.Region).WithMany(e=>e!.Cities).HasForeignKey(e=>e.RegionId);
             });
             modelBuilder.Entity<District>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-                entity.HasOne(e=>e.City).WithMany(e=>e.Districts).HasForeignKey(e=>e.CityId);
-
+                entity.HasOne(e=>e.City).WithMany(e=>e!.Districts).HasForeignKey(e=>e.CityId);
             });
              modelBuilder.Entity<Region>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-
             });
               modelBuilder.Entity<Area>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Description).IsRequired();
                 entity.Property(e=> e.IsSafety);
-                entity.HasOne(e=> e.AreaType).WithMany(e=> e.Areas).HasForeignKey(e=>e.AreaTypeId);
-                
-
+                entity.HasOne(e=> e.AreaType).WithMany(e=>e!.Areas).HasForeignKey(e=>e.AreaTypeId);
             });
               modelBuilder.Entity<AreaType>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-
             });
               modelBuilder.Entity<QRCode>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Description).IsRequired();
-
             });
               modelBuilder.Entity<Gender>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
-
             });
         }
     }
-
 }

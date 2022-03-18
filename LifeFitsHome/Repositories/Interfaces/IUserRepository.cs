@@ -1,6 +1,9 @@
-﻿namespace LifeFitsHome.Repositories.Interfaces
+﻿using LifeFitsHome.Model.Entity;
+using LifeFitsHome.Repositories.Base;
+
+namespace LifeFitsHome.Repositories.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IEntityRepository<User>
     {
     }
 }
