@@ -42,6 +42,11 @@ namespace LifeFitsHome.Services.Concrete
             return new SuccessDataResult<List<User>>(_userRepository.GetAll());
         }
 
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userRepository.GetClaims(user));
+        }
+
         public IDataResult<User> GetUserByEmail(string email)
         {
             var FindedUser = _userRepository.Get(u => u.Email == email);
