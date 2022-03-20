@@ -23,7 +23,17 @@ builder.Services.AddScoped<ITokenHelper, JwtHelper>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddScoped<IAddressRepository,AddressRepository>();
+builder.Services.AddScoped<IAddressService,AddressService>();
 
+builder.Services.AddScoped<IDistrictRepository,DistrictRepository>();
+builder.Services.AddScoped<IDistrictService,DistrictService>();
+
+builder.Services.AddScoped<ICityRepository,CityRepository>();
+builder.Services.AddScoped<ICityService,CityService>();
+
+builder.Services.AddScoped<IRegionRepository,RegionRepository>();
+builder.Services.AddScoped<IRegionService,RegionService>();
 
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
