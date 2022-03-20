@@ -3,7 +3,8 @@ using LifeFitsHome.Repositories.Base;
 
 namespace LifeFitsHome.Repositories.Interfaces
 {
-    public interface IAddressRepository : IEntityRepository<Address>
+    public interface IVaccineTypeRepository : IEntityRepository<VaccineType>
     {
+        
     }
 }
