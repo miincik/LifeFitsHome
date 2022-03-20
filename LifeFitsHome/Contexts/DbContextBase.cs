@@ -98,13 +98,13 @@ namespace LifeFitsHome.Contexts
             });
             modelBuilder.Entity<Vaccine>(entity => {
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Name);
+                entity.Property(e => e.Name).IsRequired();
                 entity.Property(e => e.Description);
                 entity.HasOne(e => e.VaccineType).WithMany(e => e.Vaccines).HasForeignKey(e => e.VaccineTypeId);
             });
             modelBuilder.Entity<VaccineType>(entity => {
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Name);
+                entity.Property(e => e.Name).IsRequired();
             });
         }
     }
