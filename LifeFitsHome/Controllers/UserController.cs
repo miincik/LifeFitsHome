@@ -1,9 +1,9 @@
-﻿using LifeFitsHome.Controllers;
-using LifeFitsHome.Model.Entity;
+﻿using LifeFitsHome.Model.Entity;
 using LifeFitsHome.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LifeFitsHome.Services.Concrete
+namespace LifeFitsHome.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
