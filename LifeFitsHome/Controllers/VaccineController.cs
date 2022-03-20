@@ -29,7 +29,7 @@ namespace LifeFitsHome.Controllers
         {
             return base.GetResponseByResultSuccess(base._service.GetVaccineById(id));
         }
-        [HttpGet("getbyemail")]
+        [HttpGet("getbyvaccinetypeid")]
         public IActionResult GetVaccineByVaccineTypeId(int id)
         {
             return base.GetResponseByResultSuccess(base._service.GetVaccineByVaccineTypeId(id));
