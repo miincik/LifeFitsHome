@@ -4,7 +4,7 @@ HayatEveSığar uygulamasının api kısmının bir ToyProject olarak tasarlanm�
 .net Yeni mezun kursu mezuniyet projesi.
 Proje ekibi
 - Mustafa İncik
-- Furkancan Kılınç
+- Furkan Can Kılınç
 - Mahsum Yiğit
 - Özkan Yaşın
 Proje geliştirmeye açıktır. 
