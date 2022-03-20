@@ -13,12 +13,6 @@ namespace LifeFitsHome.Controllers
         {
         }
 
-        [HttpPost]
-        public IActionResult AddVaccineType(VaccineType vaccineType)
-        {
-            return base.GetResponseByResultSuccess(base._service.Add(vaccineType));
-        }
-
         [HttpGet("getbyname")]
         public IActionResult GetVaccineTypeByName(string name)
         {
@@ -29,13 +23,6 @@ namespace LifeFitsHome.Controllers
         {
             return base.GetResponseByResultSuccess(base._service.GetVaccineTypeById(id));
         }
-        [HttpDelete]
-        public IActionResult DeleteVaccineType(VaccineType vaccineType){
-            return base.GetResponseByResultSuccess(base._service.Delete(vaccineType));
-        }
-        [HttpPut]
-        public IActionResult UpdateVaccineType(VaccineType vaccineType){
-            return base.GetResponseByResultSuccess(base._service.Update(vaccineType));
-        }
+       
     }
 }
