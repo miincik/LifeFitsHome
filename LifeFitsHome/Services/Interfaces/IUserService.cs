@@ -9,5 +9,6 @@ namespace LifeFitsHome.Services.Interfaces
         IDataResult <User> GetUserById (int id);
         IDataResult <User> GetUserByEmail (string email);
         IDataResult <List<User>> GetAll();
+        IDataResult<List<OperationClaim>> GetClaims(User user);
     }
 }
