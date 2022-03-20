@@ -20,6 +20,7 @@ namespace LifeFitsHome.Services.Concrete
         {
             var FindedArea=_areaRepository.Get(e=>e.Id ==entity.Id);
             if(FindedArea==null){
+                _areaRepository.Add(entity);
                 return new SuccessResult("Area Added Successfuly");
             }
             return new ErrorResult("Area Already Exist");
@@ -29,6 +30,7 @@ namespace LifeFitsHome.Services.Concrete
         {
             var FindedArea=_areaRepository.Get(e=>e.Id ==entity.Id);
             if(FindedArea!=null){
+                _areaRepository.Delete(entity);
                 return new SuccessResult("Area Delete Successfuly");
             }
             return new ErrorResult("Area Not Found");
@@ -44,7 +46,7 @@ namespace LifeFitsHome.Services.Concrete
             var FindedArea=_areaRepository.Get(e=>e.Id ==id);
             
             if(FindedArea!=null){
-                return new  SuccessDataResult<Area>("Area Found");
+                return new  SuccessDataResult<Area>(FindedArea,"Area Found");
             }
             return new ErrorDataResult<Area>("Area Not Found");
         }
@@ -63,6 +65,7 @@ namespace LifeFitsHome.Services.Concrete
         {
             var FindedArea=_areaRepository.Get(e=>e.Id ==entity.Id);
             if(FindedArea!=null){
+                _areaRepository.Update(entity);
                 return new SuccessResult("Area Update Successfuly");
             }
             return new ErrorResult("Area Not Found");

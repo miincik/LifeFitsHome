@@ -16,24 +16,22 @@ namespace LifeFitsHome.Services.Concrete
             _genderRepository = genderRepository;
         }
 
-        public IResult Add(Area entity)
+        public IResult Add(Gender entity)
         {
-            var FindedGender=_genderRepository.Get(e=>e.Id ==entity.Id);
-            if(FindedGender==null){
+            var FindedGender = _genderRepository.Get(e => e.Id == entity.Id);
+            if (FindedGender == null)
+            {
+                _genderRepository.Add(entity);
                 return new SuccessResult("Gender Added Successfuly");
             }
             return new ErrorResult("Gender Already Exist");
-        }
-
-        public IResult Add(Gender entity)
-        {
-            throw new NotImplementedException();
         }
 
         public IResult Delete(Gender entity)
         {
             var FindedGender=_genderRepository.Get(e=>e.Id ==entity.Id);
             if(FindedGender!=null){
+                _genderRepository.Delete(entity);
                 return new SuccessResult("Gender Delete Successfuly");
             }
             return new ErrorResult("Gender Not Found");
@@ -59,20 +57,16 @@ namespace LifeFitsHome.Services.Concrete
             var FindedGender=_genderRepository.Get(e=>e.Id ==id);
             
             if(FindedGender!=null){
-                return new  SuccessDataResult<Gender>("Gender Found");
+                return new  SuccessDataResult<Gender>(FindedGender,"Gender Found");
             }
             return new ErrorDataResult<Gender>("Gender Not Found");
         }
-
-       
-
-       
-
         public IResult Update(Gender entity)
         {
             var FindedGender=_genderRepository.Get(e=>e.Id ==entity.Id);
             if(FindedGender!=null){
-                return new SuccessResult("Gender Update Successfuly");
+                _genderRepository.Update(entity);
+               return new SuccessResult("Gender Update Successfuly");
             }
             return new ErrorResult("Gender Not Found");
         }
