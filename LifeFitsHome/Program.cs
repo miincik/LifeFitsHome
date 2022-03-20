@@ -35,6 +35,12 @@ builder.Services.AddScoped<ICityService,CityService>();
 builder.Services.AddScoped<IRegionRepository,RegionRepository>();
 builder.Services.AddScoped<IRegionService,RegionService>();
 
+builder.Services.AddScoped<IVaccineRepository,VaccineRepository>();
+builder.Services.AddScoped<IVaccineService,VaccineService>();
+
+builder.Services.AddScoped<IVaccineTypeRepository,VaccineTypeRepository>();
+builder.Services.AddScoped<IVaccineTypeService,VaccineTypeService>();
+
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
