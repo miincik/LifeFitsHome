@@ -1,4 +1,4 @@
-namespace LifeFitsHome.Model.Entity;
+using LifeFitsHome.Model.Entity;
 
 public class Gender : IEntity
 {
