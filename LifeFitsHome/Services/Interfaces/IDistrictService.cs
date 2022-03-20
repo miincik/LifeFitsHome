@@ -1,4 +1,3 @@
-using LifeFitsHome.Model.Entity;
 using LifeFitsHome.Services.Base;
 using LifeFitsHome.Utilities.Results;
 
