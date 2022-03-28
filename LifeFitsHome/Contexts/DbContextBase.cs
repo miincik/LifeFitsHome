@@ -39,7 +39,6 @@ namespace LifeFitsHome.Contexts
                 entity.Property(e => e.LastName).IsRequired();
                 entity.Property(e => e.IsBlocked);
                 entity.Property(e => e.IsSafety);
-                entity.HasOne(e=>e.QRCode).WithOne(e=>e!.User).HasForeignKey<User>(e=>e.QRCodeId);
                 entity.HasOne(e=>e.Gender).WithOne(e=>e!.User).HasForeignKey<User>(e=>e.GenderId);
                 entity.HasMany(e => e.Vaccines).WithMany(e => e!.Users).UsingEntity(e => e.ToTable("UserVaccine"));
             });
@@ -90,6 +89,7 @@ namespace LifeFitsHome.Contexts
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Description).IsRequired();
+                entity.HasOne(e=>e.User).WithMany(e=>e.QRCodes).HasForeignKey(e=>e.UserId);
             });
               modelBuilder.Entity<Gender>(entity =>
             {
